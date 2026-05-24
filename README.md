@@ -99,6 +99,7 @@ taskflow/
 │   │   │   ├── TaskCard.jsx           # Dashboard task card
 │   │   │   ├── PriorityBadge.jsx      # Color-coded priority pill
 │   │   │   ├── EmptyState.jsx         # Empty list illustration
+│   │   │   ├──QuickTodo.jsx           # Quick To-Do list
 │   │   │   ├── Footer.jsx             # App footer with branding
 │   │   │   └── ProtectedRoute.jsx     # Auth guard for routes
 │   │   ├── pages/
@@ -123,7 +124,6 @@ taskflow/
 │   │   └── database.js                # SQLite setup + schema init
 │   └── server.js                      # Express entry point
 │
-├── PROJECT_CONTEXT.md          # Full project knowledge doc
 └── README.md
 ```
 
