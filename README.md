@@ -312,3 +312,11 @@ Inspired by:
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+---
+# ⭐ Support
+
+If you liked this project:
+- Star the repository ⭐
+- Fork the project 🍴
+- Share feedback 🚀
+---
