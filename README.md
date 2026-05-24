@@ -1,8 +1,8 @@
 # ⚡ TaskFlow
 
-> A modern, full-stack productivity and task management application built for real-world portfolio demonstration.
+> A modern, full-stack productivity and task management web application inspired by Microsoft To Do, Notion, and Linear.
 
-![TaskFlow Banner](https://img.shields.io/badge/TaskFlow-v1.0-6366f1?style=for-the-badge&logo=lightning&logoColor=white)
+![TaskFlow Banner](https://img.shields.io/badge/TaskFlow-v1.1-6366f1?style=for-the-badge&logo=lightning&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=node.js)
 ![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?style=flat-square&logo=sqlite)
@@ -10,14 +10,23 @@
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 ---
+TaskFlow is a feature-rich task management platform built with the MERN-style stack using React, Node.js, Express, and SQLite.  
+Designed with a modern UI/UX, responsive layouts, animations, JWT authentication, analytics-ready architecture, and productivity-focused features.
 
 ## 📸 Screenshots
 
-> _Add screenshots here after deployment_
-
-| Dashboard (Dark) | My Tasks | Settings |
-|---|---|---|
-| _(screenshot)_ | _(screenshot)_ | _(screenshot)_ |
+# Login Page
+![Login Screenshot](./assets/login.png)
+# Dashboard
+![Dashboard Screenshot](./assets/dashboard.png)
+# Quick To-Do
+![Dashboard Screenshot](./assets/mytask.png)
+# Setting 
+![Dashboard Screenshot](./assets/setting.png)
+# Add Task 
+![Dashboard Screenshot](./assets/addtask.png)
+# Lightmode 
+![Dashboard Screenshot](./assets/lightmode.png)
 
 ---
 
@@ -33,6 +42,7 @@
 
 ### UI/UX
 - 🌙 **Dark / Light Mode** — Toggle with system preference detection
+- 📱 **Fully Responsive** — Mobile, tablet, laptop, desktop
 - ✨ **Smooth Animations** — Framer Motion throughout
 - 💀 **Skeleton Loaders** — Professional loading states
 - 🔔 **Toast Notifications** — Success, error, action feedback
@@ -129,8 +139,8 @@ taskflow/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/taskflow.git
-cd taskflow
+git clone https://github.com/ayushracherlawar-ai/taskflow-fullstack-app.git
+cd taskflow-fullstack-app
 ```
 
 ### 2. Backend setup
@@ -177,6 +187,29 @@ npm run dev
 ```
 
 Frontend runs at: `http://localhost:5173`
+
+---
+# ▶️ Run Project
+
+## Run Frontend + Backend Together
+
+```bash
+npm run dev
+```
+
+---
+
+## Frontend Runs On
+
+```bash
+http://localhost:5173
+```
+
+## Backend Runs On
+
+```bash
+http://localhost:5000
+```
 
 ---
 
@@ -226,26 +259,6 @@ CREATE TABLE tasks (
 );
 ```
 
----
-
-## 🌐 Deployment
-
-### Frontend → Vercel
-
-1. Push code to GitHub
-2. Import repo on [vercel.com](https://vercel.com)
-3. Set root directory to `frontend`
-4. Add environment variable: `VITE_API_URL=https://your-backend.onrender.com/api`
-5. Deploy
-
-### Backend → Render
-
-1. Create a new **Web Service** on [render.com](https://render.com)
-2. Set root directory to `backend`
-3. Build command: `npm install`
-4. Start command: `node server.js`
-5. Add environment variables: `JWT_SECRET` and `PORT=5000`
-6. Deploy
 
 ---
 
@@ -258,18 +271,81 @@ CREATE TABLE tasks (
 | `1280px+` | Desktop | Full sidebar with extra content breathing room |
 
 ---
+# 🌙 Dark Mode
 
-## 🔮 Roadmap
-
-- [ ] Kanban board drag-and-drop (dnd-kit)
-- [ ] Task tags / categories
-- [ ] Analytics charts (recharts)
-- [ ] Email reminders (nodemailer + cron)
-- [ ] Rate limiting on auth routes
-- [ ] GitHub Actions CI/CD pipeline
-- [ ] Keyboard shortcuts
+TaskFlow includes:
+- System-aware theme detection
+- Persistent theme storage
+- Tailwind class-based dark mode
+- Responsive UI across all devices
+---
+### QuickTodo (embedded in Dashboard + My Tasks)
+- Microsoft To-Do style quick checklist
+- Animated checkbox (whileTap scale)
+- Line-through animation on complete
+- Pending items listed first, completed section below
+- Progress bar
+- Share button
+- Persisted in localStorage (`"taskflow_quick_todos"`)
 
 ---
+## ✅ Features Implemented (Tier 1 + Upgrades)
+
+| Feature | Status |
+|---|---|
+| JWT Register + Login | ✅ |
+| Change Password (backend) | ✅ |
+| Dark Mode (persisted, system-aware) | ✅ |
+| Responsive Sidebar (desktop + mobile) | ✅ |
+| Dashboard with stats | ✅ |
+| Task CRUD (create, read, update, delete) | ✅ |
+| Priority labels (low/medium/high) | ✅ |
+| Status tracking (pending/in-progress/completed) | ✅ |
+| Search tasks | ✅ |
+| Sort tasks (4 options) | ✅ |
+| Filter by priority + status | ✅ |
+| Time remaining on tasks | ✅ |
+| Overdue warning (ribbon + red border) | ✅ |
+| Skeleton loaders | ✅ |
+| Optimistic delete (rollback on error) | ✅ |
+| Empty state (animated SVG + CTA) | ✅ |
+| Completion progress bar | ✅ |
+| Quick To-Do list (MS To Do style) | ✅ |
+| My Tasks page (list view + checkbox toggle) | ✅ |
+| Settings page (6 sections) | ✅ |
+| Export tasks to CSV | ✅ |
+| Browser notifications | ✅ |
+| Footer with branding | ✅ |
+| react-hot-toast notifications | ✅ |
+| Framer Motion animations throughout | ✅ |
+
+---
+
+## 🔮 Planned / Future (Tier 2+)
+
+| Feature | Notes |
+|---|---|
+| Analytics page | recharts: bar, pie, line charts — code exists but route removed |
+| Kanban board | dnd-kit drag-drop between status columns |
+| Tags/categories | Add `tags` column to SQLite, filter by tag |
+| Task reminders (cron) | nodemailer + node-cron |
+| GitHub Actions CI | `.github/workflows/ci.yml` |
+| Rate limiting | express-rate-limit on auth routes |
+| Keyboard shortcuts | N=add task, /=search, Esc=close |
+| Confetti on completion | canvas-confetti |
+| Focus mode | Today's tasks fullscreen |
+
+---
+
+# 🧠 Design Inspiration
+
+Inspired by:
+- Microsoft To Do
+- Notion
+- Linear
+
+---
+
 
 ## 👨‍💻 Author
 
@@ -282,3 +358,11 @@ CREATE TABLE tasks (
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+---
+# ⭐ Support
+
+If you liked this project:
+- Star the repository ⭐
+- Fork the project 🍴
+- Share feedback 🚀
+---
