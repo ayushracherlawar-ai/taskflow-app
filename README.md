@@ -43,21 +43,13 @@ Designed with a modern UI/UX, responsive layouts, animations, JWT authentication
 - 📱 **Fully Responsive** — Mobile, tablet, laptop, desktop
 - ✨ **Smooth Animations** — Framer Motion throughout
 - 💀 **Skeleton Loaders** — Professional loading states
-- 🔔 **Toast Notifications** — Success, error, action feedback
 
 ### Productivity
-- 📋 **Quick To-Do List** — Microsoft To Do style checklist (persisted locally)
 - 🔍 **Search Tasks** — Instant search by title and description
 - ↕️ **Sort Options** — Newest, Oldest, Due Date, Priority
 - 🏷️ **Filter Pills** — Filter by priority and status simultaneously
 - 📈 **Progress Bar** — Visual completion percentage
 - 📊 **Stats Dashboard** — Total, Pending, In Progress, Completed, High Priority, Overdue
-
-### Settings
-- 🔒 **Change Password** — With strength indicator
-- 🎨 **Theme Toggle** — Persistent dark/light preference
-- 📥 **Export CSV** — Download all tasks as spreadsheet
-- 🔔 **Browser Notifications** — Native OS push notifications
 
 ---
 
