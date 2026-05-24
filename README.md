@@ -99,7 +99,7 @@ taskflow/
 │   │   │   ├── TaskCard.jsx           # Dashboard task card
 │   │   │   ├── PriorityBadge.jsx      # Color-coded priority pill
 │   │   │   ├── EmptyState.jsx         # Empty list illustration
-│   │   │   ├──QuickTodo.jsx           # Quick To-Do list
+│   │   │   ├── QuickTodo.jsx           # Quick To-Do list
 │   │   │   ├── Footer.jsx             # App footer with branding
 │   │   │   └── ProtectedRoute.jsx     # Auth guard for routes
 │   │   ├── pages/
