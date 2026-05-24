@@ -33,7 +33,6 @@
 
 ### UI/UX
 - 🌙 **Dark / Light Mode** — Toggle with system preference detection
-- 📱 **Fully Responsive** — Mobile, tablet, laptop, desktop
 - ✨ **Smooth Animations** — Framer Motion throughout
 - 💀 **Skeleton Loaders** — Professional loading states
 - 🔔 **Toast Notifications** — Success, error, action feedback

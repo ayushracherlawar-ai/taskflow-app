@@ -170,7 +170,7 @@ const AddTask = () => {
                         }`}
                     >
                       <Icon size={15} className="shrink-0" />
-                      <span className="hidden xs:inline">{label}</span>
+                      <span>{label}</span>
                     </button>
                   ))}
                 </div>

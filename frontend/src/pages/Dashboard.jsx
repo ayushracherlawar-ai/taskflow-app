@@ -322,8 +322,7 @@ const Dashboard = () => {
           />
         </div>
 
-        {/* ── 4. Quick To-Do widget ── */}
-        <QuickTodo />
+
 
         {/* ── 5. Search + Sort ── */}
         <div className="flex items-center gap-2 sm:gap-3">
