@@ -1,46 +1,254 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap');
+/**
+ * index.css — Global styles for TaskFlow
+ *
+ * Structure:
+ *  1. Google Fonts import
+ *  2. Tailwind directives
+ *  3. @layer base     — HTML/body resets, color-scheme fixes
+ *  4. @layer components — Reusable utility classes (.btn-primary, .input-field, etc.)
+ *  5. @layer utilities  — Skeleton, scrollbar, text-gradient helpers
+ *  6. Responsive overrides — Edge-case breakpoint fixes
+ *
+ * Dark mode: Tailwind "class" strategy — toggling `dark` class on <html>
+ * Fonts: DM Sans (body), Syne (display/headings), DM Mono (code)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── Base ── */
+/* ══════════════════════════════════════════════════════════════
+   1. BASE LAYER — resets + global element styles
+══════════════════════════════════════════════════════════════ */
 @layer base {
+  /* Universal box-sizing */
+  *, *::before, *::after { box-sizing: border-box; }
+
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth antialiased;
+    /*
+      Safe-area insets: prevents content from rendering under
+      the notch/home bar on iPhone X+ and Android notch devices.
+    */
+    padding-top:    env(safe-area-inset-top,    0px);
+    padding-right:  env(safe-area-inset-right,  0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left:   env(safe-area-inset-left,   0px);
   }
 
   body {
-    @apply bg-slate-100 text-slate-800 font-sans transition-colors duration-300;
+    @apply bg-slate-100 text-slate-800 font-sans;
+    -webkit-font-smoothing:  antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*
+      Prevent iOS rubber-band scroll on the body.
+      Individual scroll containers (like <main>) still scroll normally.
+    */
+    overscroll-behavior: none;
   }
 
   html.dark body {
-    @apply bg-[#0f1117] text-slate-100;
+    @apply bg-[#0d0f18] text-slate-100;
+  }
+
+  /*
+    Date/time input color-scheme:
+    Without this, browser-native date pickers ignore dark mode
+    and render a white popup on dark backgrounds.
+  */
+  input[type="date"],
+  input[type="time"]              { color-scheme: light; }
+  html.dark input[type="date"],
+  html.dark input[type="time"]    { color-scheme: dark;  }
+
+  /* Remove blue flash on tap (iOS/Android) */
+  * { -webkit-tap-highlight-color: transparent; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   2. COMPONENT LAYER — reusable Tailwind @apply classes
+   These replace repetitive inline class strings across JSX files.
+   Prefix convention: btn-, input-, label, page-, section-
+══════════════════════════════════════════════════════════════ */
+@layer components {
+
+  /* ── Primary action button ───────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+      bg-brand-500 hover:bg-brand-600
+      text-white font-semibold text-sm
+      px-4 py-2.5 rounded-xl
+      shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40
+      transition-all duration-200
+      hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]
+      disabled:opacity-60 disabled:pointer-events-none
+      select-none;
+  }
+
+  /* ── Ghost / secondary button ────────────────────────────── */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+      text-slate-600 dark:text-slate-300
+      bg-transparent hover:bg-slate-100 dark:hover:bg-slate-700/60
+      font-medium text-sm
+      px-4 py-2.5 rounded-xl
+      transition-all duration-150
+      select-none;
+  }
+
+  /* ── Text input / select / textarea ──────────────────────── */
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-xl text-sm
+      bg-slate-50 dark:bg-slate-900/50
+      border border-slate-200 dark:border-slate-700
+      text-slate-800 dark:text-slate-100
+      placeholder-slate-400 dark:placeholder-slate-500
+      focus:outline-none focus:ring-2 focus:ring-brand-500/35 focus:border-brand-500
+      transition-all duration-150;
+  }
+
+  /* ── Form field label ────────────────────────────────────── */
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wide
+      text-slate-500 dark:text-slate-400 mb-1.5;
+  }
+
+  /* ── Page outer wrapper ──────────────────────────────────── */
+  .page-wrapper {
+    /*
+      flex-1   : fills remaining height inside <main>
+      min-h-0  : allows content to shrink (prevents overflow in flex column)
+    */
+    @apply flex-1 min-h-0 flex flex-col
+      bg-slate-100 dark:bg-[#0d0f18]
+      transition-colors duration-300;
+  }
+
+  /* ── Page inner content container ───────────────────────── */
+  .page-inner {
+    /*
+      Responsive horizontal padding + max-width centering.
+      w-full ensures it doesn't collapse on flex children.
+    */
+    @apply w-full max-w-5xl mx-auto
+      px-3 sm:px-5 lg:px-8
+      py-4 sm:py-6 lg:py-8;
+  }
+
+  /* ── White card / panel ──────────────────────────────────── */
+  .section-card {
+    @apply w-full bg-white dark:bg-slate-800/70
+      rounded-2xl
+      border border-slate-200 dark:border-slate-700/80
+      shadow-[0_1px_3px_rgba(0,0,0,0.07),_0_4px_16px_rgba(0,0,0,0.05)];
+  }
+
+  /* ── Glass morphism card ──────────────────────────────────── */
+  .glass {
+    @apply bg-white/80 dark:bg-slate-800/60
+      backdrop-blur-md
+      border border-white/60 dark:border-slate-700/50;
+  }
+
+  /*
+    ── Task row (left-accent border style) ──────────────────────
+    Used in MyTasks list view.
+    The left border-4 accent shows cleanly because we only round
+    the RIGHT corners. Rounding left corners clips the thick border.
+  */
+  .task-row {
+    @apply flex items-start gap-3
+      bg-white dark:bg-slate-800/60
+      border border-slate-200 dark:border-slate-700/60
+      border-l-4
+      rounded-r-xl rounded-l-none      /* only right corners rounded */
+      px-3 sm:px-4 py-3
+      group
+      hover:shadow-sm dark:hover:shadow-slate-900/40
+      transition-all duration-150;
+  }
+
+  /* Left-border accent colors per status */
+  .task-row-pending     { @apply border-l-slate-400;  }
+  .task-row-in-progress { @apply border-l-blue-500;   }
+  .task-row-completed   { @apply border-l-teal-500;   }
+
+  /* ── Gradient text utility ───────────────────────────────── */
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-400 via-violet-400 to-teal-400
+      bg-clip-text text-transparent;
   }
 }
 
-/* ── Scrollbar ── */
+/* ══════════════════════════════════════════════════════════════
+   3. UTILITY LAYER — single-purpose helpers
+══════════════════════════════════════════════════════════════ */
 @layer utilities {
+
+  /*
+    Skeleton shimmer animation.
+    Used on loading placeholder elements.
+    Apply class="skeleton" + height/width on the element.
+  */
+  .skeleton {
+    background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s ease infinite;
+    border-radius: 0.75rem;
+  }
+  html.dark .skeleton {
+    background: linear-gradient(90deg, #1e293b 25%, #273044 50%, #1e293b 75%);
+    background-size: 400px 100%;
+  }
+  @keyframes shimmer {
+    0%   { background-position: -400px 0; }
+    100% { background-position:  400px 0; }
+  }
+
+  /* Thin branded scrollbar (used inside sidebar nav) */
   .scrollbar-thin {
     scrollbar-width: thin;
     scrollbar-color: #6366f1 transparent;
   }
-  .scrollbar-thin::-webkit-scrollbar { width: 4px; }
+  .scrollbar-thin::-webkit-scrollbar       { width: 4px; height: 4px; }
   .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
   .scrollbar-thin::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 9999px; }
+
+  /* Invisible scrollbar (content still scrollable) */
+  .no-scrollbar               { -ms-overflow-style: none; scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+
+  /* Notch/safe-area top padding helper for mobile */
+  .safe-top { padding-top: env(safe-area-inset-top, 0px); }
 }
 
-/* ── Skeleton shimmer ── */
-@keyframes shimmer {
-  0%   { background-position: -400px 0; }
-  100% { background-position: 400px 0; }
+/* ══════════════════════════════════════════════════════════════
+   4. RESPONSIVE OVERRIDES
+   Fine-tune layout at specific breakpoints where Tailwind
+   utility classes alone aren't expressive enough.
+══════════════════════════════════════════════════════════════ */
+
+/*
+  Very small phones (< 360px — e.g. older Android devices).
+  Tighten padding so content doesn't clip on either side.
+*/
+@media (max-width: 359px) {
+  .page-inner {
+    padding-left:  0.5rem;
+    padding-right: 0.5rem;
+  }
 }
-.skeleton {
-  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
-  background-size: 400px 100%;
-  animation: shimmer 1.4s ease infinite;
-}
-html.dark .skeleton {
-  background: linear-gradient(90deg, #1e293b 25%, #273044 50%, #1e293b 75%);
-  background-size: 400px 100%;
+
+/*
+  Mobile: When sidebar is in top-bar mode (<md), the main content
+  area starts below the 56px header. We need the content wrapper
+  to account for that height so nothing hides behind the bar.
+*/
+@media (max-width: 767px) {
+  .page-wrapper {
+    /* Ensures footer reaches bottom even on short-content pages */
+    min-height: calc(100dvh - 56px);
+  }
 }

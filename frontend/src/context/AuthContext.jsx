@@ -1,7 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(() => localStorage.getItem("token"));
@@ -11,16 +11,11 @@ export const AuthProvider = ({ children }) => {
     try { return jwtDecode(t); } catch { return null; }
   });
 
-  // login accepts (token, userObj) — userObj is optional,
-  // falls back to decoding the JWT
   const login = (jwtToken, userObj = null) => {
     localStorage.setItem("token", jwtToken);
     setToken(jwtToken);
-    try {
-      setUser(userObj ?? jwtDecode(jwtToken));
-    } catch {
-      setUser(null);
-    }
+    try { setUser(userObj ?? jwtDecode(jwtToken)); }
+    catch { setUser(null); }
   };
 
   const logout = () => {
