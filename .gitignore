@@ -8,16 +8,21 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Dependencies
-node_modules
+node_modules/
 
 # Build output
-dist
-dist-ssr
+dist/
+dist-ssr/
+build/
 
 # Local env files
 .env
 .env.*
 *.local
+
+# Database files
+*.db
+*.sqlite
 
 # Ignore project notes/context
 PROJECT_CONTEXT.md
@@ -25,8 +30,10 @@ PROJECT_CONTEXT.md
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
+Thumbs.db
+
 *.suo
 *.ntvs*
 *.njsproj
