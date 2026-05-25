@@ -1,17 +1,80 @@
-# ⚡ TaskFlow
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366f1,100:8b5cf6&height=240&section=header&text=TaskFlow&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Modern%20Productivity%20and%20Task%20Management%20Platform&descAlignY=60&descSize=20" />
+</p>
 
-> A modern, full-stack productivity and task management web application inspired by Microsoft To Do, Notion, and Linear.
+<!-- <p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=venom&color=0:6366f1,100:8b5cf6&height=300&section=header&text=TaskFlow&fontSize=70&fontColor=ffffff&animation=twinkling&fontAlignY=40&desc=Modern%20Full-Stack%20Task%20Management%20Platform&descAlignY=60&descSize=22" />
+</p> -->
 
-![TaskFlow Banner](https://img.shields.io/badge/TaskFlow-v1.1-6366f1?style=for-the-badge&logo=lightning&logoColor=white)
-![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)
-![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=node.js)
-![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?style=flat-square&logo=sqlite)
-![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=flat-square&logo=tailwind-css)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=700&size=24&duration=2500&pause=1000&color=A78BFA&center=true&vCenter=true&width=850&lines=Organize+Tasks+Like+a+Pro;Inspired+by+Notion+%2B+Linear+%2B+Microsoft+To+Do;JWT+Authentication+%7C+Analytics+%7C+Productivity;Modern+Animations+%26+Responsive+UI;Built+with+React+%2B+Node.js+%2B+SQLite" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JWT-Authentication-F59E0B?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Responsive-UI-8B5CF6?style=for-the-badge"/>
+</p>
+
+## ✨ Features
+
+<table align="center">
+<tr>
+<td align="center">📋 Smart Task Management</td>
+<td align="center">🌗 Dark / Light Mode</td>
+<td align="center">📱 Fully Responsive UI</td>
+</tr>
+
+<tr>
+<td align="center">🔐 JWT Authentication</td>
+<td align="center">📊 Productivity Analytics</td>
+<td align="center">⚡ Smooth Animations</td>
+</tr>
+
+<tr>
+<td align="center">🧠 Modern Dashboard</td>
+<td align="center">🗂️ Task Categories</td>
+<td align="center">🚀 Fast Performance</td>
+</tr>
+</table>
+
+---
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,nodejs,express,sqlite,tailwind,javascript,vite,git,github" />
+</p>
+
+---
+
+<div align="center">
+
+### 🌟 Designed to Feel Like a Real SaaS Product
+
+Minimal. Fast. Animated. Responsive.  
+Built to impress recruiters and demonstrate full-stack engineering skills.
+
+</div>
 
 ---
 TaskFlow is a feature-rich task management platform built with the MERN-style stack using React, Node.js, Express, and SQLite.  
 Designed with a modern UI/UX, responsive layouts, animations, JWT authentication, analytics-ready architecture, and productivity-focused features.
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8b5cf6,100:6366f1&height=120&section=footer"/>
+</p>
+
+
+
+
+
+
+
+
+
+
+
 
 ## 📸 Screenshots
 
@@ -20,13 +83,13 @@ Designed with a modern UI/UX, responsive layouts, animations, JWT authentication
 # Dashboard
 ![Dashboard Screenshot](./assets/dashboard.png)
 # Quick To-Do
-![Dashboard Screenshot](./assets/mytask.png)
+![MyTask Screenshot](./assets/mytask.png)
 # Setting 
-![Dashboard Screenshot](./assets/setting.png)
+![Setting Screenshot](./assets/setting.png)
 # Add Task 
-![Dashboard Screenshot](./assets/addtask.png)
+![AddTask Screenshot](./assets/addtask.png)
 # Lightmode 
-![Dashboard Screenshot](./assets/lightmode.png)
+![Lightmode Screenshot](./assets/lightmode.png)
 
 ---
 
