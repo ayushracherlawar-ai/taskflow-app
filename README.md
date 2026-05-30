@@ -202,8 +202,8 @@ taskflow/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/ayushracherlawar-ai/taskflow-fullstack-app.git
-cd taskflow-fullstack-app
+git clone https://github.com/ayushracherlawar-ai/taskflow-app.git
+cd taskflow-app
 ```
 
 ### 2. Backend setup
